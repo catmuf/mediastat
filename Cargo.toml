@@ -4,6 +4,7 @@ members = [
     "crates/mediastat-core",
     "crates/mediastat-scanner",
     "crates/mediastat-storage",
+    "crates/mediastat-cli",
 ]
 
 [workspace.package]

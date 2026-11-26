@@ -54,6 +54,31 @@ cargo clippy --workspace --all-targets -- -D warnings
 cargo test --workspace
 ```
 
+---
+
+## Headless CLI Usage (File Servers & Automation)
+
+```powershell
+# 1. List local drives, resolved UNC targets, and NTFS $MFT support (supports --lang en|es)
+.\target\release\mediastat-cli.exe drives
+.\target\release\mediastat-cli.exe --lang en drives
+
+# 2. Scan with NTFS owners, DACL security audit, Sparse Hash duplicates, CSV, and Executive HTML report
+.\target\release\mediastat-cli.exe scan P:\Projects \\fileserver\media `
+  --out audit.mstat `
+  --scan-owners --scan-perms --sparse-dupes `
+  --export-csv largest_files.csv `
+  --export-html executive_report.html
+
+# 3. Export Top N largest files or generate a PowerShell quarantine script from a snapshot
+.\target\release\mediastat-cli.exe export audit.mstat --format csv --top 500 --out top500.csv
+.\target\release\mediastat-cli.exe export audit.mstat --format ps1-quarantine --out quarantine.ps1
+
+# 4. Print a snapshot summary or diff two snapshots (Before vs. After)
+.\target\release\mediastat-cli.exe summary audit.mstat
+.\target\release\mediastat-cli.exe diff audit_before.mstat audit_after.mstat
+```
+
 ## License
 
 MIT
