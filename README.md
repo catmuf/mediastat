@@ -26,6 +26,11 @@ High-speed disk space analyzer inspired by **WinDirStat (`master` / 2.10)** with
 - **Duplicate Detection & Multi-Hashing**: Fast BLAKE3 and Sparse Hash sampling for large files (> 64 MiB), plus on-demand MD5 / SHA-256 / BLAKE3 hashing.
 - **Permissions, Owners & Live Watcher**: Win32 NTFS/SMB owner (`DOMAIN\user`) and DACL security auditing, drive/UNC enumeration, and real-time directory change monitoring (`ReadDirectoryChangesW`).
 
+### Snapshots, Diffing & Reporting (`mediastat-storage`)
+- **SQLite WAL `.mstat` Snapshots**: Fast persistence of full scan trees (with backward compatibility for legacy v2 `.mstat` snapshots) plus CSV snapshot import.
+- **Before vs. After Diff Engine**: Compares two snapshots to pinpoint folder-level growth and space reclamation.
+- **Multi-Format Exports**: Export scan results or selections to CSV, JSON, JSONL, Permissions CSV, Duplicates CSV, PowerShell Quarantine scripts, and **self-contained Executive HTML Reports**.
+
 ---
 
 ## Workspace Architecture
